@@ -1,15 +1,15 @@
 int PinA0 = 0;
-int led11 = 11;
-int led12 = 12;
+int led11 = 11; // LED11 use to learn how button work
+int led12 = 12; // LED12 for extra function
 int button = 8;
 
-unsigned long waitTime = 1000;
+unsigned long waitTime = 1000; // time hold button
 
-boolean ledStatus = 0;
+boolean ledStatus = 0 ;        //LED11 off as default
 boolean lastledStatus = 1;
 
-boolean lastButtonStatus = 0;
-boolean buttonLongPress = 0;
+boolean lastButtonStatus = 1;
+boolean buttonLongPress = 1;
 
 unsigned long lastChangedTime;
 
@@ -23,7 +23,7 @@ void Temperature();
 void setup() {
   // put your setup code here, to run once:
   pinMode(led11, OUTPUT);
-  pinMode(button, INPUT);
+  pinMode(button, INPUT_PULLUP);
 
   digitalWrite(led11, ledStatus);
 
@@ -50,11 +50,11 @@ void loop() {
     buttonLongPress = reading;
     lastChangedTime = millis();
     Serial.print("Event of hold: ");
-    Serial.println(buttonLongPress);
+    Serial.println(!buttonLongPress);
   }
-  if(buttonLongPress == true){
+  if(buttonLongPress == false){
     ledStatus = lastledStatus;
-    buttonLongPress = false;
+    buttonLongPress = true;
   }
   if(ledStatus == 1){
     Led_blink();
