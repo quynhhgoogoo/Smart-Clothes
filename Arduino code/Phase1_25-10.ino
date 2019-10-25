@@ -1,4 +1,3 @@
-//Library
 #include <Wire.h> 
 #include <LiquidCrystal_I2C.h>
 
@@ -37,13 +36,12 @@ float Vout = 0;
 float Temp = 0;
 
 /* LCD */
-int countpedo = 0;
-int counttemp = 0;
+
 
 /**************************************************************************************/
 
 // Function prototype
-void printtolcd(char *s, float data);
+
 void printinlcd(char *s, float data);
 void Led_blink();
 void Temperature();
@@ -61,6 +59,7 @@ void setup() {
   digitalWrite(led11, ledStatus);
 
   Serial.begin(9600);
+  lcd.begin();
 }
 
 /*************************************************************************************/
@@ -135,14 +134,7 @@ void Temperature(){
 }
 
 void TemperaturetoLCD(){
-  if(counttemp==0){
-    printtolcd("Temp", Temp);
-    
-  }
-  else{
     printinlcd("Temp", Temp);
-  }
-  counttemp++;
 }
 
 
@@ -158,37 +150,19 @@ void Pedometer(){
 }
 
 void PedometertoLCD(){
-  if(countpedo==0){
-    printtolcd("Step", pedoCount);
-    
-  }
-  else{
     printinlcd("Step", pedoCount);
-  }
-  countpedo++;
 }
 
 /***********************************************************************************/
 
 //LCD PART
-void printtolcd(char *s, float data){
-  lcd.begin();
-  lcd.setCursor(16,0);
-  lcd.print(s);
-  lcd.print(" ");
-  lcd.print(data);
-  for (int positionCounter = 0; positionCounter < 16; positionCounter++) {
-  lcd.scrollDisplayLeft();
-  delay(30);
-  }
-}
 
 void printinlcd(char *s, float data){
-  lcd.begin();
   lcd.setCursor(0,0);
   lcd.print(s);
   lcd.print(" ");
   lcd.print(data);
+  delay(50);
 }
 
 /***********************************************************************************/
@@ -208,10 +182,8 @@ void Choose_program(){
     
     if(buttonPushCounter % 2 == 0){
       PedometertoLCD();
-      counttemp = 0;
     }
     else{
       TemperaturetoLCD();
-      countpedo = 0;
     }
 }
