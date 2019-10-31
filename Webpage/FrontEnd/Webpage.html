@@ -1,165 +1,192 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <!-- Meta information -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
+    <link rel="stylesheet" href="file:///Users/nguyenduythanh/Desktop/C0DlNG/Atom/Projects/Smart%20Clothing/Webpage/FrontEnd/CSS/input.css">
+    <link rel="stylesheet" href="file:///Users/nguyenduythanh/Desktop/C0DlNG/Atom/Projects/Smart%20Clothing/Webpage/FrontEnd/CSS/icon.css">
+    <link rel="stylesheet" href="file:///Users/nguyenduythanh/Desktop/C0DlNG/Atom/Projects/Smart%20Clothing/Webpage/FrontEnd/CSS/button.css">
+    <link rel="stylesheet" href="file:///Users/nguyenduythanh/Desktop/C0DlNG/Atom/Projects/Smart%20Clothing/Webpage/FrontEnd/CSS/modal.css">
+    <link rel="stylesheet" href="file:///Users/nguyenduythanh/Desktop/C0DlNG/Atom/Projects/Smart%20Clothing/Webpage/FrontEnd/CSS/pwdval.css">
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> -->
+
+    <!-- Internal CSS -->
     <style>
-      body {font-family: Arial, Helvetica, sans-serif;}
+      body {font-family: font-family: 'Roboto', sans-serif;}
       * {box-sizing: border-box;}
 
-      /* Full-width input fields */
-      input[type=text], input[type=password] {
-        width: 100%;
-        padding: 15px;
-        margin: 5px 0 22px 0;
-        display: inline-block;
-        border: none;
-        background: #f1f1f1;
+      label {
+        cursor: default;
       }
 
-      /* Add a background color when the inputs get focus */
-      input[type=text]:focus, input[type=password]:focus {
-        background-color: #ddd;
-        outline: none;
-      }
-
-      /* Set a style for all buttons */
-      button {
-        background-color: #4CAF50;
-        color: white;
-        padding: 14px 20px;
-        margin: 8px 0;
-        border: none;
-        cursor: pointer;
-        width: 100%;
-        opacity: 0.9;
-      }
-
-      button:hover {
-        opacity:1;
-      }
-
-      /* Signup button */
-      .signupbtn {
-        /*float: center;*/
-        width: 50%;
-      }
-
-      /* Add padding to container elements */
-      .container {
-        padding: 16px;
-        background-color: white;
-      }
-
-      /* The Modal (background) */
-      .modal {
-        display: none; /* Hidden by default */
-        position: fixed; /* Stay in place */
-        z-index: 1; /* Sit on top */
-        left: 0;
-        top: 0;
-        width: 100%; /* Full width */
-        height: 100%; /* Full height */
-        overflow: auto; /* Enable scroll if needed */
-        background-color: #474e5d;
-        padding-top: 50px;
-      }
-
-      /* Modal Content/Box */
-      .modal-content {
-        background-color: #fefefe;
-        margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
-        border: 1px solid #888;
-        width: 80%; /* Could be more or less, depending on screen size */
-      }
-
-      /* Style the horizontal ruler */
-      hr {
-        border: 1px solid #f1f1f1;
-        margin-bottom: 25px;
-      }
-
-      /* The Close Button (x) */
-      .close {
-        position: absolute;
-        right: 35px;
-        top: 15px;
-        font-size: 60px;
-        font-weight: bold;
-        color: #f1f1f1;
-      }
-
-      .close:hover, .close:focus {
-        color: #f44336;
-        cursor: pointer;
-      }
-
-      /* Change styles for cancel button and signup button on extra small screens */
-      @media screen and (max-width: 600px) {
-        .signupbtn {
-           width: 100%;
-        }
+      /* Set style for warnings */
+      #warning1, #warning2{
+        display: none;
+        color: red;
       }
     </style>
   </head>
 
   <body>
+    <!-- Navigation bar -->
     <nav class="navbar navbar-inverse">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="#">WebSiteName</a>
+          <a class="navbar-brand" href="#">SVest</a>
         </div>
+
+        <!-- Left side navigation bar: Home, About, Contact -->
         <ul class="nav navbar-nav">
           <li class="active"><a href="#home">Home</a></li>
-          <li class="active"><a href="#about">About</a><li>
-          <li class="active"><a href="#contact">Contact</a><li>
+          <li class="active"><a href="#about">About</a></li>
+          <li class="active"><a href="#contact">Contact</a></li>
         </ul>
+
+        <!-- Right side navigation bar: Signup, Login -->
         <ul class="nav navbar-nav navbar-right">
           <li><a href="#signup" onclick="document.getElementById('id01').style.display='block'"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
           <li><a href="#login" onclick="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
         </ul>
+
+        <!-- Modal -->
         <div id="id01" class="modal">
           <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+
+          <!-- Signup form content -->
           <form class="modal-content" action="/action_page.php" onsubmit="if(document.getElementById('agree').checked) { return true; } else { alert('Please indicate that you have read and agree to the Terms and Conditions and Privacy Policy'); return false; }">
             <div class="container">
               <h1>Sign Up</h1>
               <p>Please fill in this form to create an account.</p>
               <hr>
-              <label for="username"><b>Username</b></label>
-              <input type="text" onfocus="this.value=''" value="Enter Username" name="username" required>
 
-              <label for="email"><b>Email</b></label>
-              <input type="text" onfocus="this.value=''" value="Enter Email" name="email" required>
+              <!-- Username input -->
+              <label style="padding-left:16px" for="username"><b>Username</b></label>
+                <i class="fa fa-user"></i>
+              <input type="text" placeholder="Enter Username" id="username" required>
 
-              <label for="psw"><b>Password</b></label>
-              <input type="password" onfocus="this.value=''" value="Enter Password" name="psw" required>
+              <!-- Email input -->
+              <label style="padding-left:16px" for="email"><b>Email</b></label>
+                <i class="fa fa-envelope"></i>
+              <input type="email" placeholder="Enter Email" id="email" required>
 
-              <label for="psw-repeat"><b>Repeat Password</b></label>
-              <input type="password" onfocus="this.value=''" value="Repeat Password" name="psw-repeat" required>
+              <!-- Password input -->
+              <label style="padding-left:16px" for="pwd"><b>Password</b></label>
+                <i class="fa fa-lock"></i>
+              <input type="password" placeholder="Enter Password" id="pwd" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must comprise of min 11 characters; containing from 1 to more of each: lowercase letter, uppercase letter, number" required>
 
+              <!-- Check Caps lock for password input field -->
+              <p id="warning1"><i class="fa fa-warning"></i> Caps lock is ON.</p>
+
+              <!-- Password Validation -->
+              <div id="pwdval">
+                <p id="lowercase" class="invalid">At least <b>1 lowercase</b> letter</p>
+                <p id="uppercase" class="invalid">At least <b>1 uppercase</b> letter</p>
+                <p id="number" class="invalid">At least <b> 1 number</b></p>
+                <p id="charnum" class="invalid">Minimum <b>11 characters</b></p>
+              </div>
+
+              <!-- Confirm Password input -->
+              <label style="padding-left:16px" for="pwd-conf"><b>Confirm Password</b></label>
+                <i class="fa fa-lock"></i><i class="fa fa-check"></i>
+              <input type="password" placeholder="Confirm Password" id="pwd-conf" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+
+              <!-- Check Caps lock for password confirmation input field -->
+              <p id="warning2">WARNING! Caps lock is ON.</p>
+
+              <!-- 'Remember me' checkbox -->
               <label>
-                <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                <input type="checkbox" checked="checked" id="remember" style="margin-bottom: 15px"> Remember me
               </label>
 
-              <p>By checking this box <input type="checkbox" name="checkbox" id="agree"> you agree to our <a href="#Terms & Conditions" onclick="window.open('file:///Users/nguyenduythanh/Desktop/C0DlNG/Atom/Projects/Smart%20Clothing/TermsAndConditions.html', 'Terms&Conditions', 'resizeable, width=570, height=420'); return false;" style="color:dodgerblue"><u>Terms & Conditions</u></a>.</p>
+              <!-- 'Terms & Conditions' checkbox  -->
+              <p>By checking this box <input type="checkbox" id="agree"> you agree to our <a href="#Terms & Conditions" onclick="window.open('file:///Users/nguyenduythanh/Desktop/C0DlNG/Atom/Projects/Smart%20Clothing/Webpage/FrontEnd/TermsAndConditions.html', 'Terms&Conditions', 'resizeable, width=570, height=420'); return false;"><i>Terms & Conditions</i></a>.</p>
               <center><button type="submit" class="signupbtn">Sign Up</button></center>
-              <p><center>Already have an account? <a href="#login"><u>Log in</u></a>.</center><p><p>
+              <center>Already have an account? <a href="#login"><u>Log in</u></a>.</center>
             </div>
           </form>
         </div>
-      </div>
-      <script>
-      // Get the modal
-      var modal = document.getElementById('id01');
 
-      // When the user clicks anywhere outside of the modal, close it
+      </div>
+
+      <!-- Javascript -->
+      <script>
+      // Variable declaration
+      var modal = document.getElementById('id01');
+      var password = document.getElementById("pwd");
+      var confirmPassword = document.getElementById("pwd-conf");
+      var warning1 = document.getElementById("warning1");
+      var warning2 = document.getElementById("warning2");
+      var lowercase = document.getElementById("lowercase");
+      var lowercaseLetters = /[a-z]/g;
+      var uppercase = document.getElementById("uppercase");
+      var uppercaseLetters = /[A-Z]/g;
+      var number = document.getElementById("number");
+      var numbers = /[0-9]/g;
+      var charnum = document.getElementById("charnum");
+
+      // Close the modal when the user clicks anywhere outside of it
       window.onclick = function(event) {
         if (event.target == modal) {
           modal.style.display = "none";
+        }
+      }
+
+      // Display warning if Caps lock is on while the user enters password-type inputs
+      password.addEventListener("keyup", function(event){if (event.getModifierState("CapsLock")){warning1.style.display = "block";} else {warning1.style.display = "none"}});
+      confirmPassword.addEventListener("keyup", function(event){if (event.getModifierState("CapsLock")){warning2.style.display = "block";} else {warning2.style.display = "none"}});
+
+      // Display the Password Validation message box when user clicks on the password field
+      password.onfocus = function() {
+        document.getElementById("pwdval").style.display = "block";
+      }
+
+      // Hide the Password Validation message box when user clicks outside the password field
+      password.onblur = function() {
+        document.getElementById("pwdval").style.display = "none";
+      }
+
+      // Password Validation
+      password.onkeyup = function() {
+
+        // Lowercase letters
+        if(password.value.match(lowercaseLetters)) {
+          lowercase.classList.remove("invalid");
+          lowercase.classList.add("valid");
+        } else {
+          lowercase.classList.remove("valid");
+          lowercase.classList.add("invalid");
+        }
+
+        // Capital letters
+        if(password.value.match(uppercaseLetters)) {
+          uppercase.classList.remove("invalid");
+          uppercase.classList.add("valid");
+        } else {
+          uppercase.classList.remove("valid");
+          uppercase.classList.add("invalid");
+        }
+
+        // Numbers
+        if(password.value.match(numbers)) {
+          number.classList.remove("invalid");
+          number.classList.add("valid");
+        } else {
+          number.classList.remove("valid");
+          number.classList.add("invalid");
+        }
+
+        // Number of characters
+        if(password.value.length >= 8) {
+          charnum.classList.remove("invalid");
+          charnum.classList.add("valid");
+        } else {
+          charnum.classList.remove("valid");
+          charnum.classList.add("invalid");
         }
       }
       </script>
