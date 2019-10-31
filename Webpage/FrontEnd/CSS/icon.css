@@ -1,0 +1,13 @@
+/* This is the css file to style the icons */
+
+
+/* Set style for icons */
+.fa {
+  background-color: white;
+  color: #98AFC7; /* Blue Grey */
+}
+
+.fa-warning {
+  background-color: black;
+  color: #FFFF33 /* Gorse */
+}

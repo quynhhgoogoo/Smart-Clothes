@@ -1,0 +1,40 @@
+/* This is the css file to style the Password Validation section */
+
+
+/* The message box is shown when the user clicks on the password field */
+#pwdval {
+  display:none;
+  background: #f1f1f1; /* White Smoke */
+  color: black;
+  position: relative;
+  margin: 1% auto 3% auto;
+  border: 1px #ccc; /* Very Light Grey */
+  border-radius: 8px;
+}
+
+#pwdval p {
+  padding: 1px 42px;
+  font-size: 16px;
+}
+
+/* Add a green text color and a checkmark when the requirements are right */
+.valid {
+  color: green;
+}
+
+.valid:before {
+  position: relative;
+  left: -20px;
+  content: "✔";
+}
+
+/* Add a red text color and an "x" when the requirements are wrong */
+.invalid {
+  color: red;
+}
+
+.invalid:before {
+  position: relative;
+  left: -20px;
+  content: "✖";
+}

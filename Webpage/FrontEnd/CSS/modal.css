@@ -1,0 +1,45 @@
+/* This is the css file to style the Modal and it's elements */
+
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: #474e5d; /* Tuna */
+  padding-top: 50px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: white;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid grey;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 35px;
+  top: 15px;
+  font-size: 60px;
+  font-weight: bold;
+  color: #f1f1f1; /* White Smoke */
+}
+
+.close:hover, .close:focus {
+  color: #f44336; /* Red Orange */
+  cursor: pointer;
+}
+
+/* Style the horizontal ruler */
+hr {
+  border: 1px solid #f1f1f1; /* White Smoke */
+  margin-bottom: 25px;
+}
