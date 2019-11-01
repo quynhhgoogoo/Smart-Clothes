@@ -1,0 +1,29 @@
+/* This is the css file to style the dropdown Login element */
+
+
+/* Style the form wrapper */
+.navbar .dropdown-menu.form-wrapper {
+	width: 350px;
+	padding: 20px;
+	left: auto;
+	right: 0;
+  ont-size: 14px;
+}
+.navbar .dropdown-menu.form-wrapper a {
+	color: #33cabb;
+	padding: 0 !important;
+}
+
+/* Style the 'or' seperator */
+  .or-seperator {
+    margin-top: 20px;
+    text-align: center;
+    border-top: 1px solid #ccc;
+  }
+  .or-seperator i {
+    padding: 0 10px;
+    background: white;
+    position: relative;
+    top: -11px;
+    z-index: 1;
+  }
