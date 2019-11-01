@@ -17,7 +17,7 @@
   font-size: 16px;
 }
 
-/* Add a green text color and a checkmark when the requirements are right */
+/* Add a green text color and a "✔" when the requirements are right */
 .valid {
   color: green;
 }
@@ -28,7 +28,7 @@
   content: "✔";
 }
 
-/* Add a red text color and an "x" when the requirements are wrong */
+/* Add a red text color and an "✖" when the requirements are wrong */
 .invalid {
   color: red;
 }
