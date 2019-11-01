@@ -1,12 +1,6 @@
 /* This is the css file to style the inputs */
 
 
-/* Add padding to container elements */
-.container {
-  padding: 16px;
-  background-color: white;
-}
-
 /* Full-width input fields */
 input[type=text], input[type=password], input[type=email] {
   width: 100%;
