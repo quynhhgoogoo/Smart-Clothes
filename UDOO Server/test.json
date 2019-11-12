@@ -1,5 +1,43 @@
 [{
-    "temperature": 27,
-    "calories": 120,
-    "distance": 50
-}]
+        "temperature": 27,
+        "hudminity": 15,
+        "calories": 120,
+        "distance": 50
+    },
+    {
+        "temperature": "30",
+        "hudminity": "123",
+        "calories": "120",
+        "distance": "50"
+    },
+    {
+        "temperature": "20",
+        "hudminity": "123",
+        "calories": "120",
+        "distance": "50"
+    },
+    {
+        "temperature": "30",
+        "hudminity": "123",
+        "calories": "120",
+        "distance": "50"
+    },
+    {
+        "temperature": "27",
+        "hudminity": "123",
+        "calories": "120",
+        "distance": "50"
+    },
+    {
+        "temperature": "20",
+        "hudminity": "123",
+        "calories": "120",
+        "distance": "50"
+    },
+    {
+        "temperature": "20",
+        "hudminity": "123",
+        "calories": "120",
+        "distance": "50"
+    }
+]
