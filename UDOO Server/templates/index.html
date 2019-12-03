@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Chart.js - Temperature line chart</title>
+    <title>Chart.js - Steps line chart</title>
     <link rel="stylesheet" href="./style.css">
 
 </head>
@@ -14,7 +14,7 @@
         <!-- Custom information -->
         <div class="about">
             <h3>Chart.js</h3>
-            <p class="lead">Temperature in °C</p>
+            <p class="lead">Steps in °C</p>
         </div>
 
         <!-- Canvas for Chart.js -->
@@ -25,37 +25,44 @@
             <div class="tick">
                 <span class="day-number">10</span>
                 <span class="day-name">MON</span>
-                <span class="value value--this">{{test[0]["temperature"]}}</span>
+                <span class="day-name">Steps</span>
+                <span class="value value--this">{{data[0]["Steps"]}}</span>
+                <span class="day-name">Temperature</span>
+                <span class="value value--this">{{data[0]["Temperature"]}}</span>
+                <span class="day-name">Distance</span>
+                <span class="value value--this">{{data[0]["Distance"]}}</span>
+                <span class="day-name">Speed</span>
+                <span class="value value--this">{{data[0]["Speed"]}}</span>
             </div>
             <div class="tick">
                 <span class="day-number">11</span>
                 <span class="day-name">TUE</span>
-                <span class="value value--this">{{test[1]["temperature"]}}</span>
+                <span class="value value--this">{{data[1]["Steps"]}}</span>
             </div>
             <div class="tick">
                 <span class="day-number">12</span>
                 <span class="day-name">WED</span>
-                <span class="value value--this">{{test[2]["temperature"]}}</span>
+                <span class="value value--this">{{data[2]["Steps"]}}</span>
             </div>
             <div class="tick">
                 <span class="day-number">13</span>
                 <span class="day-name">THU</span>
-                <span class="value value--this">{{test[3]["temperature"]}}</span>
+                <span class="value value--this">{{data[3]["Steps"]}}</span>
             </div>
             <div class="tick">
                 <span class="day-number">14</span>
                 <span class="day-name">FRI</span>
-                <span class="value value--this">{{test[4]["temperature"]}}</span>
+                <span class="value value--this">{{data[4]["Steps"]}}</span>
             </div>
             <div class="tick">
                 <span class="day-number">15</span>
                 <span class="day-name">SAT</span>
-                <span class="value value--this">{{test[5]["temperature"]}}</span>
+                <span class="value value--this">{{data[5]["Steps"]}}</span>
             </div>
             <div class="tick">
                 <span class="day-number">16</span>
                 <span class="day-name">SUN</span>
-                <span class="value value--this">{{test[6]["temperature"]}}</span>
+                <span class="value value--this">{{data[6]["Steps"]}}</span>
             </div>
         </div>
     </div>

@@ -14,9 +14,9 @@ app = Flask(__name__)
 @app.route('/',methods=['GET','POST'])            
 def userdata():                                           
     data=[]
-    with open("test.json", "r") as json_data:
+    with open("data.json", "r") as json_data:
         data = json.load(json_data)
-    return render_template("index.html", page_title="User data", test = data)
+    return render_template("index.html", page_title="User data", data = data)
 
 
 if __name__ == '__main__':
