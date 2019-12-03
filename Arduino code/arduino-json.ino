@@ -232,7 +232,7 @@ void PrintAll(){
 	Serial.print(Calculating_Speed());
 	Serial.print(",\"Calories\":");
 	Serial.print(Calculating_Speed());
-  Serial.println("}");
+  Serial.println("},");
 }
 
 /***********************************************************************************/
