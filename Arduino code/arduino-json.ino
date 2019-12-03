@@ -222,16 +222,17 @@ void Choose_program(){
 /***********************************************************************************/
 void PrintAll(){
 
-	Serial.print("Steps: ");
+	Serial.print("{\"Steps\":");
 	Serial.print(pedoCount);
-	Serial.print("Temperature: ");
-	Serial.println(Temp);
-	Serial.print("Distance: ");
-	Serial.println(Calculating_Distance());
-	Serial.print("Speed: ");
-	Serial.println(Calculating_Speed());
-	Serial.print("Calories: ");
-	Serial.println(Calculating_Speed());
+	Serial.print(",\"Temperature\":");
+	Serial.print(Temp);
+	Serial.print(",\"Distance\":");
+	Serial.print(Calculating_Distance());
+	Serial.print(",\"Speed\":");
+	Serial.print(Calculating_Speed());
+	Serial.print(",\"Calories\":");
+	Serial.print(Calculating_Speed());
+  Serial.println("}");
 }
 
 /***********************************************************************************/
