@@ -32,10 +32,8 @@ def userdata():
             data=[]
             with open("data.json", "r") as udoo_data:
                 udoo_data = json.load(udoo_data)
-                i=0
             for temperature in udoo_data:
-                temperature = temperature[i]["Steps"]
-                i= i+1 
+                temperature = temperature["Temperature"]
                 temperature_data = json.dumps(
                 {'time': datetime.now().strftime('%Y-%m-%d %H:%M:%S'), 'value': temperature})
             yield f"data:{temperature_data}\n\n"
@@ -43,4 +41,4 @@ def userdata():
     return Response(update_json_data(), mimetype='text/event-stream')
 
 if __name__ == '__main__':
-    application.run(debug=True, threaded=True)
+    application.run(host = "0.0.0.0", debug=True, threaded=True)
