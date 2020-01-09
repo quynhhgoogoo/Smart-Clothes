@@ -17,6 +17,9 @@ def index():
 def steps():
     return render_template('steps.html')
 
+@application.route('/distances')
+def distances():
+    return render_template('distances.html')
 
 #@application.route('/chart-data')
 #def chart_data():
@@ -54,6 +57,20 @@ def stepsdata():
                 step_data = json.dumps(
                 {'time': datetime.now().strftime('%Y-%m-%d %H:%M:%S'), 'value': step})
             yield f"data:{step_data}\n\n"
+            time.sleep(1)
+    return Response(update_json_data(), mimetype='text/event-stream')
+
+@application.route('/distances-data',methods=['GET','POST'])            
+def distancesdata():
+    def update_json_data():                                         
+            data=[]
+            with open("data.json", "r") as udoo_data:
+                udoo_data = json.load(udoo_data)
+            for distance in udoo_data:
+                distance = distance["Distance"]
+                distance_data = json.dumps(
+                {'time': datetime.now().strftime('%Y-%m-%d %H:%M:%S'), 'value': distance})
+            yield f"data:{distance_data}\n\n"
             time.sleep(1)
     return Response(update_json_data(), mimetype='text/event-stream')
 
