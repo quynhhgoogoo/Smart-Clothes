@@ -5,7 +5,6 @@ import os
 from datetime import datetime
 
 from flask import Flask, Response, render_template,request,redirect,url_for
-
 application = Flask(__name__)
 random.seed()  # Initialize the random number generator
 
@@ -13,6 +12,10 @@ random.seed()  # Initialize the random number generator
 @application.route('/')
 def index():
     return render_template('visualization.html')
+
+@application.route('/steps')
+def steps():
+    return render_template('steps.html')
 
 
 #@application.route('/chart-data')
@@ -37,6 +40,20 @@ def userdata():
                 temperature_data = json.dumps(
                 {'time': datetime.now().strftime('%Y-%m-%d %H:%M:%S'), 'value': temperature})
             yield f"data:{temperature_data}\n\n"
+            time.sleep(1)
+    return Response(update_json_data(), mimetype='text/event-stream')
+
+@application.route('/steps-data',methods=['GET','POST'])            
+def stepsdata():
+    def update_json_data():                                         
+            data=[]
+            with open("data.json", "r") as udoo_data:
+                udoo_data = json.load(udoo_data)
+            for step in udoo_data:
+                step = step["Steps"]
+                step_data = json.dumps(
+                {'time': datetime.now().strftime('%Y-%m-%d %H:%M:%S'), 'value': step})
+            yield f"data:{step_data}\n\n"
             time.sleep(1)
     return Response(update_json_data(), mimetype='text/event-stream')
 

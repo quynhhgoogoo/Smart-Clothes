@@ -1,0 +1,229 @@
+easeout(s=.45s)
+  transition all s cubic-bezier(0.23, 1, 0.32, 1)
+align()
+  display flex
+  align-items center
+  justify-content center
+color1 = #1abc9c;
+color2 = #e74c3c;
+color3 = #3498db;
+color4 = #F4D03F;
+color5 = #9b59b6;
+color6 = #bdc3c7;
+  
+*
+  box-sizing border-box
+  -webkit-tap-highlight-color:  rgba(white, 0); // remove tap highlight on android chrome
+
+body
+  line-height 1.5
+  font-family 'Montserrat'
+  -webkit-font-smoothing antialiased
+  text-rendering optimizeLegibility
+  color lighten(black, 10)
+  background lighten(black, 10)
+  
+a
+  text-decoration none
+  color inherit
+  
+ ul
+   list-style-type none
+   margin 0
+   padding 0
+   
+ .nav
+   will-change: transform
+   position fixed
+   top 0
+   left 0
+   width 100%
+   z-index 1
+   background lighten(black, 10)
+   transform translateY(-100%)
+   easeout()
+   
+   &--active
+     transform translateY(0)
+   
+   &__list
+     display flex
+   
+   &__item
+     flex 1
+     position relative
+     easeout()
+     
+     &:hover
+       opacity 0.75
+        
+   &__thumb
+     display block
+     height 120px
+     background crimson
+     easeout()
+              
+     &:before
+       content attr(data-letter)
+       position absolute
+       top 50%
+       left 50%
+       transform translate(-50%, -50%)
+       font-size 70px
+       text-transform uppercase
+       opacity 0.15
+     
+   &__label
+     position absolute
+     top 50%
+     left 50%
+     transform translate(-50%, -50%)
+     text-transform uppercase
+     letter-spacing 2px
+     color lighten(black, 10)
+     margin 0
+     
+   @media (max-width 850px)
+     &__label
+       font-size 14px
+       
+   @media (max-width 720px)
+     &__label
+       display none
+
+     &__thumb
+       height 90px
+       &:before
+         font-size 32px
+         opacity 0.7
+     
+.burger
+  position absolute
+  right 0
+  top 100%
+  width 60px
+  height 60px
+  background lighten(black, 10)
+  cursor pointer
+  align()
+  
+  &__patty
+    position relative
+    width 60%
+    height 2px
+    background white
+    easeout()
+    
+    &:before,
+    &:after
+      will-change transform
+      content ""
+      position absolute
+      left 0
+      background white
+      height 2px
+      width 100%
+      easeout()
+    
+    &:before
+      top -10px
+    &:after
+      top 10px
+      
+  &--close
+    .burger__patty
+      transform rotate(45deg)
+      &:before
+        transform rotate(-90deg) translate(-9px, 0)
+      &:after
+        opacity 0
+        transform scaleX(0)
+
+.page
+  height 100vh
+  will-change transform
+  perspective 400px
+  overflow hidden
+  easeout()
+
+.section
+  will-change transform
+  position absolute
+  width 100%
+  top 0
+  left 0
+  height 100vh
+  overflow hidden
+  align()
+  text-align center
+  background white
+  transform translateX(100%)
+  easeout(.7s)
+  
+  &--hidden
+    transform translateX(-100%);
+  
+  &--active
+    transform translateX(0) rotateY(0)
+    z-index 2
+    
+  &:before
+    content attr(data-letter)
+    position absolute
+    top 50%
+    left 50%
+    transform translate(-50%, -50%)
+    font-size 75vh
+    text-transform uppercase
+    opacity 0.15
+    z-index -1
+    
+  &__wrapper
+    width 100%
+    max-width 800px
+    padding 0 8vw
+    
+  &__title
+    margin 0 0 25px 0
+    font-size 24px
+    text-transform uppercase
+    letter-spacing 4px
+    
+  p
+    margin 0 0 25px 0
+    font-family 'Georgia'
+    font-size 20px
+    
+    &:last-child
+      margin-bottom 0
+      
+.color1
+  background color1
+.color2
+  background color2
+.color3
+  background color3
+.color4
+  background color4
+.color5
+  background color5
+.color6
+  background color6
+  
+.logo
+  position: fixed
+  top: 195px
+  right: 7px
+  z-index: 2
+  
+  @media (max-width 720px)
+     top 160px
+  
+  
+  img
+    width: 45px
+    transform: rotate(0)
+    easeout()
+  
+    &:hover
+      transform: rotate(180deg) scale(1.1)

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Display data in Real Time</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="./style.css">
+
+</head>
+
+<body>
+    <!--suppress JSUnresolvedLibraryURL -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <!--suppress JSUnresolvedLibraryURL -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!--suppress JSUnresolvedLibraryURL -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+    <!-- partial:index.partial.html -->
+    <nav class="nav nav--active">
+        <ul class="nav__list">
+            <li class="nav__item">
+                <a href="" class="nav__link">
+                    <div class="nav__thumb color1" data-letter="a"></div>
+                    <p class="nav__label">Calories</p>
+                </a>
+            </li>
+            <li class="nav__item">
+                <a href="" class="nav__link">
+                    <div class="nav__thumb color2" data-letter="p"></div>
+                    <p class="nav__label">Temperature</p>
+                </a>
+            </li>
+            <li class="nav__item">
+                <a href="" class="nav__link">
+                    <div class="nav__thumb color3" data-letter="q"></div>
+                    <p class="nav__label">Steps</p>
+                </a>
+            </li>
+            <li class="nav__item">
+                <a href="" class="nav__link">
+                    <div class="nav__thumb color4" data-letter="e"></div>
+                    <p class="nav__label">Distance</p>
+                </a>
+            </li>
+            <li class="nav__item">
+                <a href="" class="nav__link">
+                    <div class="nav__thumb color5" data-letter="s"></div>
+                    <p class="nav__label">Steps</p>
+                </a>
+            </li>
+            <li class="nav__item">
+                <a href="" class="nav__link">
+                    <div class="nav__thumb color6" data-letter="c"></div>
+                    <p class="nav__label">User Information</p>
+                </a>
+            </li>
+        </ul>
+        <div class="burger burger--close">
+            <div class="burger__patty"></div>
+        </div>
+        <a href="http://ettrics.com/code/horizontal-tab-menu/" class="logo" target="_blank">
+            <img class="logo" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/45226/ettrics-logo.svg" alt="" />
+        </a>
+    </nav>
+
+    <div class="page">
+        <section class="section section--active color1" data-letter="a">
+            <article class="section__wrapper">
+                <h1 class="section__title">Temperature</h1>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <canvas id="canvas"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+        <section class="section color2" data-letter="p">
+            <article class="section__wrapper">
+                <h1 class="section__title">Products</h1>
+                <p>Use your 'left' and 'right' arrow keys to navigate.<br> Quos vel omnis quibusdam at inventore atque assumenda dignissimos ipsa magni perferendis, minima neque saepe reprehenderit quisquam numquam voluptas quo placeat quaerat!</p>
+            </article>
+        </section>
+        <section class="section color3" data-letter="q">
+            <article class="section__wrapper">
+                <h1 class="section__title">Questions</h1>
+                <p>Use your 'left' and 'right' arrow keys to navigate.<br> Labore iure tempora magnam aliquid voluptatum sit placeat necessitatibus, adipisci est, ipsum doloremque. Id quia consequatur labore repellendus. Ab eligendi voluptatibus doloribus.</p>
+            </article>
+        </section>
+        <section class="section color4" data-letter="e">
+            <article class="section__wrapper">
+                <h1 class="section__title">Events</h1>
+                <p>Use your 'left' and 'right' arrow keys to navigate.<br> Earum porro, at odit. Dolorem velit asperiores quam obcaecati ex numquam aspernatur at et! Possimus blanditiis, distinctio est qui deleniti nisi dolorem!</p>
+            </article>
+        </section>
+        <section class="section color5" data-letter="s">
+            <article class="section__wrapper">
+                <h1 class="section__title">Sponsors</h1>
+                <p>Use your 'left' and 'right' arrow keys to navigate.<br> Autem alias perferendis facilis, quibusdam, ratione repellendus, voluptate officiis ipsa ullam magnam libero atque doloribus sunt est ea nisi iste porro excepturi.</p>
+            </article>
+        </section>
+        <section class="section color6" data-letter="c">
+            <article class="section__wrapper">
+                <h1 class="section__title">Contact us</h1>
+                <p>Use your 'left' and 'right' arrow keys to navigate.<br> Dicta nostrum ad minima magnam, in nemo doloremque eum! Deserunt illo, laudantium eos ad, quisquam nisi, necessitatibus saepe ex a sit impedit.</p>
+            </article>
+        </section>
+    </div>
+    <!-- partial -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src="./script.js"></script>
+
+</body>
+
+</html>
