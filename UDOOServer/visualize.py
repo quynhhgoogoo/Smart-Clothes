@@ -21,6 +21,10 @@ def steps():
 def distances():
     return render_template('distances.html')
 
+@application.route('/calories')
+def calories():
+    return render_template('calories.html')
+
 #@application.route('/chart-data')
 #def chart_data():
 #    def generate_random_data():
@@ -71,6 +75,20 @@ def distancesdata():
                 distance_data = json.dumps(
                 {'time': datetime.now().strftime('%Y-%m-%d %H:%M:%S'), 'value': distance})
             yield f"data:{distance_data}\n\n"
+            time.sleep(1)
+    return Response(update_json_data(), mimetype='text/event-stream')
+
+@application.route('/calories-data',methods=['GET','POST'])            
+def caloriesdata():
+    def update_json_data():                                         
+            data=[]
+            with open("data.json", "r") as udoo_data:
+                udoo_data = json.load(udoo_data)
+            for calories in udoo_data:
+                calories = distance["Calories"]
+                calories_data = json.dumps(
+                {'time': datetime.now().strftime('%Y-%m-%d %H:%M:%S'), 'value': calories})
+            yield f"data:{calories_data}\n\n"
             time.sleep(1)
     return Response(update_json_data(), mimetype='text/event-stream')
 
