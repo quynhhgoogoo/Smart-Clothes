@@ -21,9 +21,17 @@ def steps():
 def distances():
     return render_template('distances.html')
 
+@application.route('/speed')
+def speed():
+    return render_template('speed.html')
+
 @application.route('/calories')
 def calories():
     return render_template('calories.html')
+
+@application.route('/map')
+def map():
+    return render_template('googlemap.html')
 
 #@application.route('/chart-data')
 #def chart_data():
@@ -78,6 +86,20 @@ def distancesdata():
             time.sleep(1)
     return Response(update_json_data(), mimetype='text/event-stream')
 
+@application.route('/speed-data',methods=['GET','POST'])            
+def speeddata():
+    def update_json_data():                                         
+            data=[]
+            with open("data.json", "r") as udoo_data:
+                udoo_data = json.load(udoo_data)
+            for speed in udoo_data:
+                speed = speed["Speed"]
+                speed_data = json.dumps(
+                {'time': datetime.now().strftime('%Y-%m-%d %H:%M:%S'), 'value': speed})
+            yield f"data:{speed_data}\n\n"
+            time.sleep(1)
+    return Response(update_json_data(), mimetype='text/event-stream')
+
 @application.route('/calories-data',methods=['GET','POST'])            
 def caloriesdata():
     def update_json_data():                                         
@@ -85,10 +107,25 @@ def caloriesdata():
             with open("data.json", "r") as udoo_data:
                 udoo_data = json.load(udoo_data)
             for calories in udoo_data:
-                calories = distance["Calories"]
+                calories = calories["Calories"]
                 calories_data = json.dumps(
                 {'time': datetime.now().strftime('%Y-%m-%d %H:%M:%S'), 'value': calories})
             yield f"data:{calories_data}\n\n"
+            time.sleep(1)
+    return Response(update_json_data(), mimetype='text/event-stream')
+
+@application.route('/gps-data',methods=['GET','POST'])            
+def gpsdata():
+    def update_json_data():                                         
+            data=[]
+            with open("gps.json", "r") as udoo_data:
+                udoo_data = json.load(udoo_data)
+            for gps in udoo_data:
+                gps1 = lat[""]
+                gps2 = lng[""]
+                gps_data = json.dumps(
+                {'time': datetime.now().strftime('%Y-%m-%d %H:%M:%S'), 'lat': lat, 'lng':lng})
+            yield f"data:{gps_data}\n\n"
             time.sleep(1)
     return Response(update_json_data(), mimetype='text/event-stream')
 

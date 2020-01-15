@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Distances Real-Time Charts</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <canvas id="canvas"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="carousel__nav">
+            <a href="/distances" class="nav nav--left">Previous</a>
+            <a href="/calo" class="nav nav--right">Next</a>
+        </div>
+    </div>
+    <!--suppress JSUnresolvedLibraryURL -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <!--suppress JSUnresolvedLibraryURL -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!--suppress JSUnresolvedLibraryURL -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            const config = {
+                type: 'line',
+                data: {
+                    labels: [],
+                    datasets: [{
+                        label: "Speed",
+                        backgroundColor: '#84E89D',
+                        borderColor: '#96FF91',
+                        data: [],
+                        fill: false,
+                    }],
+                },
+                options: {
+                    responsive: true,
+                    title: {
+                        display: true,
+                        text: 'Speed Real-Time Charts'
+                    },
+                    tooltips: {
+                        mode: 'index',
+                        intersect: false,
+                    },
+                    hover: {
+                        mode: 'nearest',
+                        intersect: true
+                    },
+                    scales: {
+                        xAxes: [{
+                            display: true,
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Time'
+                            }
+                        }],
+                        yAxes: [{
+                            display: true,
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Value'
+                            }
+                        }]
+                    }
+                }
+            };
+
+            const context = document.getElementById('canvas').getContext('2d');
+
+            const lineChart = new Chart(context, config);
+
+            const source = new EventSource("/speed-data");
+
+            source.onmessage = function(event) {
+                const data = JSON.parse(event.data);
+                if (config.data.labels.length === 20) {
+                    config.data.labels.shift();
+                    config.data.datasets[0].data.shift();
+                }
+                config.data.labels.push(data.time);
+                config.data.datasets[0].data.push(data.value);
+                lineChart.update();
+            }
+        });
+    </script>
+</body>
+
+</html>
