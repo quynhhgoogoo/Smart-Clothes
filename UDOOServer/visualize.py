@@ -9,9 +9,13 @@ application = Flask(__name__)
 random.seed()  # Initialize the random number generator
 
 
-@application.route('/')
+@application.route('/temperature')
 def index():
     return render_template('visualization.html')
+
+@application.route('/')
+def landing():
+    return render_template('landing.html')
 
 @application.route('/steps')
 def steps():
@@ -33,16 +37,6 @@ def calories():
 def map():
     return render_template('googlemap.html')
 
-#@application.route('/chart-data')
-#def chart_data():
-#    def generate_random_data():
-#        while True:
-#            json_data = json.dumps(
-#                {'time': datetime.now().strftime('%Y-%m-%d %H:%M:%S'), 'value': random.random() * 100})
-#            yield f"data:{json_data}\n\n"
-#            time.sleep(1)
-
-#    return Response(generate_random_data(), mimetype='text/event-stream')
 
 @application.route('/chart-data',methods=['GET','POST'])            
 def userdata():
