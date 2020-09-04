@@ -21,3 +21,15 @@ Running the RPi server in local network, one must have wireless router and PC wi
 2. Change directory path: cd UDOOServer
 3. Run the server: python3 visualize.py
 4. Access to the web page using RPi address
+
+### Project Capture
+Belows are some capture of our project
+1. Hardware Structure
+![image](https://user-images.githubusercontent.com/26543302/92230834-6be64b00-eeb4-11ea-906b-e192e1cc0532.png)
+![image](https://user-images.githubusercontent.com/26543302/92230916-89b3b000-eeb4-11ea-8c09-a1480b012125.png)
+
+2. Software demo
+![image](https://user-images.githubusercontent.com/26543302/92230974-a18b3400-eeb4-11ea-8f72-d58d38a4dc05.png)
+![image](https://user-images.githubusercontent.com/26543302/92231308-38f08700-eeb5-11ea-9dbb-7aea6de5c192.png)
+![image](https://user-images.githubusercontent.com/26543302/92231119-dd25fe00-eeb4-11ea-83e4-8c4c08f171b6.png)
+
