@@ -10,9 +10,7 @@
 2. Change directory path: cd UDOOServer
 3. Run the server: python3 visualize.py
 
-### If it still not working :(
+### For further debug
 1. Check the version, update if needed
 2. Check host address in main program visualize.py, modify if needed:<br>  
-      application.run(host = "<insert_RPI_address_here>", debug=True, threaded=True) <br>
-      (but it should work fine)
-3. Asking Stackoverflow with your fingers crossed lol :D
+    ```  application.run(host = "<insert_RPI_address_here>", debug=True, threaded=True) ```
